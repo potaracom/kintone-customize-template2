@@ -10,10 +10,10 @@
     offset: number;
     size: number;
     date: null;
-    type: "list";
+    type: string;
   }
 
   kintone.events.on("app.record.index.show", function (event: Event) {
-    console.log();
+    console.log(event);
   });
 })();

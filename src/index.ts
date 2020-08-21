@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  interface Event {
+  interface IndexEvent {
     appId: number;
     viewType: string;
     viewId: number;
@@ -13,7 +13,18 @@
     type: string;
   }
 
-  kintone.events.on("app.record.index.show", function (event: Event) {
+  interface DetailEvent {
+    appId: number;
+    record: kintone.types.SavedFields;
+    recordId: number;
+    type: string;
+  }
+
+  kintone.events.on("app.record.index.show", function (event: IndexEvent) {
+    console.log(event);
+  });
+
+  kintone.events.on("app.record.detail.show", function (event: DetailEvent) {
     console.log(event);
   });
 })();
